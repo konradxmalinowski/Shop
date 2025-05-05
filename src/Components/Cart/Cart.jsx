@@ -1,0 +1,60 @@
+import './cart.css';
+import cakeImage from '../../images/illustration-empty-cart.svg';
+import carbonNeutralImage from '../../images/icon-carbon-neutral.svg';
+import CartItems from './CartItems';
+
+import { ShopContext } from '../../store/shop-context-provider';
+
+import { useContext } from 'react';
+
+export default function Cart() {
+  const { products, sumPrices, handleOrderConfirm } = useContext(ShopContext);
+
+  const numberOfAddedProducts = (
+    <h3>
+      Your card ({products.filter((product) => product.amount > 0).length})
+    </h3>
+  );
+
+  return (
+    <div className="cart">
+      {products.filter((product) => product.amount > 0).length === 0 ? (
+        <>
+          {numberOfAddedProducts}
+          <img src={cakeImage} alt="empty card illustration" loading="lazy" />
+        </>
+      ) : (
+        <>
+          {numberOfAddedProducts}
+          <CartItems />
+
+          <div className="order-total">
+            <span className="grey">Order Total</span>
+            <span className="weight-900">
+              {sumPrices(products).toFixed(2)}$
+            </span>
+          </div>
+
+          <div className="info">
+            <img
+              src={carbonNeutralImage}
+              alt="carbon neutral icon"
+              loading="lazy"
+            />
+            <span className="grey">
+              This is <span className="weight-800">carbon neutral</span>
+              delivery
+            </span>
+          </div>
+
+          <button
+            className="confirm-delivery-button"
+            onClick={handleOrderConfirm}
+          >
+            Confirm order
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
