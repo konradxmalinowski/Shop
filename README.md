@@ -1,8 +1,8 @@
-# 🛒 Shop - A React Shopping Cart Application
+# Shop - A React Shopping Cart Application
 
 Shop is a modern and responsive web application built with **React** and **Vite**. It allows users to browse desserts, add them to a shopping cart, and place orders. The app is designed with simplicity and usability in mind.
 
----
+<br>
 
 ## Features
 
@@ -12,7 +12,7 @@ Shop is a modern and responsive web application built with **React** and **Vite*
 - **Order Summary**: View the total cost of your order.
 - **Order Confirmation**: Confirm your order and start a new one.
 
----
+<br>
 
 ##  Technologies Used
 
@@ -21,7 +21,7 @@ Shop is a modern and responsive web application built with **React** and **Vite*
 - **CSS**: For styling components.
 - **LocalStorage**: To persist cart data between sessions.
 
----
+<br>
 
 ## Getting Started
 
@@ -53,18 +53,16 @@ Follow these steps to set up and run the project locally:
     npm run dev
 ```
 
----
+<br>
 
-### Data Management
+## Screenshots
+![image](https://github.com/user-attachments/assets/ec403ad8-58af-4986-86a3-e05f67bef21d)
+![image](https://github.com/user-attachments/assets/0cc4ae69-5c25-4eb9-b1c7-c2ebc469d1d1)
 
-- Product data is stored in src/data.json.
-- Cart data is saved in localStorage to persist user selections across sessions.
+<br>
 
-### Future Enhancements
+## Contact
 
-Here are some ideas for extending the app:
+For any inquiries or feedback: [malinowski.konrad45@gmail.com](mailto:malinowski.konrad45@gmail.com)
 
--  Add product filtering and sorting options.
--  Integrate with a backend API for dynamic product data.
--  Implement user authentication for personalized experiences.
 
