@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { ShopContext } from './store/shop-context-provider.jsx';
 
 function App() {
-  const { products } = useContext(ShopContext);
+  const { products, orderConfirmRef } = useContext(ShopContext);
 
   return (
     <div className="container">
@@ -19,7 +19,7 @@ function App() {
       ) : (
         <p>Fetching data</p>
       )}
-      <OrderConfirm />
+      <OrderConfirm ref={orderConfirmRef} />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import './confirm.css';
 import ConfirmedItems from './ConfirmedItems';
 import checkedIcon from '../../images/icon-order-confirmed.svg';

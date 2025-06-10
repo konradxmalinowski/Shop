@@ -50,13 +50,40 @@ const ShopContextProvider = ({ children }) => {
 
   function handleOrderConfirm() {
     const element = orderConfirmRef.current;
-    const condition = window.getComputedStyle(element).zIndex;
-    if (condition === '3') {
-      orderConfirmRef.current.style['z-index'] = -1;
+    if (!element) {
+      console.error('orderConfirmRef is not attached to any DOM element!');
       return;
     }
+    const condition = window.getComputedStyle(element).zIndex;
+    if (condition === '3') {
+      element.style['z-index'] = -1;
+      return;
+    }
+    element.style['z-index'] = 3;
+    saveToDatabase();
+  }
 
-    orderConfirmRef.current.style['z-index'] = 3;
+  async function saveToDatabase() {
+    try {
+      const result = await fetch(
+        'http://localhost/Shop/backend/add_items.php',
+        {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            products,
+          }),
+        }
+      );
+
+      const response = await result.json();
+
+      console.log(response);
+    } catch (error) {
+      console.log('Failed saving data to database', error);
+    }
   }
 
   useEffect(() => {
