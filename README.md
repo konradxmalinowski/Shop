@@ -37,21 +37,21 @@ Follow these steps to set up and run the project locally:
 1. Clone the repository:
 
    ```bash
-      git clone <repository-url>
-      cd Shop
+   git clone <repository-url>
+   cd Shop
    ```
 
 2. Install dependencies:
 
-```bash
-    npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Start the development server:
 
-```bash
-    npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
 <br>
 
