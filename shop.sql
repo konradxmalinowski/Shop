@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shop`
+-- Database: `m42958_shop`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `orders` (
   `Id_o` int(11) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp()
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`Id_o`, `date`) VALUES
-(34, '2025-06-11');
+(1, '2025-06-11');
 
 -- --------------------------------------------------------
 
@@ -59,15 +59,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`Id_p`, `name`, `amount`, `category`, `price`, `Id_o`) VALUES
-(1, 'Waffle with Berries', 0, 'Waffle', 7, 34),
-(2, 'Vanilla Bean Crème Brûlée', 4, 'Crème Brûlée', 7, 34),
-(3, 'Macaron Mix of Five', 3, 'Macaron', 8, 34),
-(4, 'Classic Tiramisu', 0, 'Tiramisu', 6, 34),
-(5, 'Pistachio Baklava', 0, 'Baklava', 4, 34),
-(6, 'Lemon Meringue Pie', 0, 'Pie', 5, 34),
-(7, 'Red Velvet Cake', 0, 'Cake', 5, 34),
-(8, 'Salted Caramel Brownie', 0, 'Brownie', 5, 34),
-(9, 'Vanilla Panna Cotta', 3, 'Panna Cotta', 7, 34);
+(1, 'Waffle with Berries', 0, 'Waffle', 7, 1),
+(2, 'Vanilla Bean Crème Brûlée', 4, 'Crème Brûlée', 7, 1),
+(3, 'Macaron Mix of Five', 3, 'Macaron', 8, 1),
+(4, 'Classic Tiramisu', 0, 'Tiramisu', 6, 1),
+(5, 'Pistachio Baklava', 0, 'Baklava', 4, 1),
+(6, 'Lemon Meringue Pie', 0, 'Pie', 5, 1),
+(7, 'Red Velvet Cake', 0, 'Cake', 5, 1),
+(8, 'Salted Caramel Brownie', 0, 'Brownie', 5, 1),
+(9, 'Vanilla Panna Cotta', 3, 'Panna Cotta', 7, 1);
 
 --
 -- Indexes for dumped tables
