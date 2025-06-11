@@ -6,6 +6,7 @@ export const ShopContext = createContext({
   sumPrices: () => {},
   setProducts: () => {},
   orderConfirmRef: () => {},
+  toggleHistory: () => {},
 });
 
 const ShopContextProvider = ({ children }) => {
@@ -14,6 +15,7 @@ const ShopContextProvider = ({ children }) => {
     return items ? JSON.parse(items) : [];
   });
   const orderConfirmRef = useRef(null);
+  const historyRef = useRef(null);
 
   async function fetchData() {
     await fetch('src/data.json')
@@ -57,10 +59,36 @@ const ShopContextProvider = ({ children }) => {
     const condition = window.getComputedStyle(element).zIndex;
     if (condition === '3') {
       element.style['z-index'] = -1;
+      document
+        .querySelectorAll('#root > div > *')
+        .forEach((item) => item.classList.toggle('blur'));
       return;
     }
     element.style['z-index'] = 3;
+    document
+      .querySelectorAll('#root > div >*')
+      .forEach((item) => item.classList.toggle('blur'));
     saveToDatabase();
+  }
+
+  function toggleHistory() {
+    const element = historyRef.current;
+    if (!element) {
+      console.error('historyRef is not attached to any DOM element!');
+      return;
+    }
+    const condition = window.getComputedStyle(element).zIndex;
+    if (condition === '3') {
+      element.style['z-index'] = -1;
+      document
+        .querySelectorAll('#root > div > *')
+        .forEach((item) => item.classList.toggle('blur'));
+      return;
+    }
+    element.style['z-index'] = 3;
+    document
+      .querySelectorAll('#root > div > *')
+      .forEach((item) => item.classList.toggle('blur'));
   }
 
   async function saveToDatabase() {
@@ -100,6 +128,8 @@ const ShopContextProvider = ({ children }) => {
     sumPrices,
     setProducts,
     orderConfirmRef,
+    historyRef,
+    toggleHistory,
   };
   return <ShopContext value={shopCtx}>{children}</ShopContext>;
 };

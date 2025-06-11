@@ -15,6 +15,7 @@ export default function OrderConfirm({ ref }) {
 
     setProducts(updatedArray);
     handleOrderConfirm();
+    window.document.location.reload();
   }
   return (
     <div className="order-confirm" ref={ref}>

@@ -12,16 +12,21 @@ if (empty($products)) {
     exit;
 }
 
-$result = mysqli_query($conn, 'TRUNCATE TABLE products;');
-$result = null;
+$result = mysqli_query($conn, "INSERT INTO orders() VALUES ();");
+if (!$result) {
+    http_response_code(500);
+    echo json_encode(["error" => 'Failed tp create new row']);
+    exit;
+}
 
+$currentOrderNumber = mysqli_insert_id($conn);
 
 foreach ($products as $product) {
-    $result = mysqli_query($conn, "INSERT INTO products (name, amount, category, price) VALUES ('{$product['name']}', '{$product['amount']}', '{$product['category']}', '{$product['price']}');");
+    $result = mysqli_query($conn, "INSERT INTO products (name, amount, category, price, Id_o) VALUES ('{$product['name']}', '{$product['amount']}', '{$product['category']}', '{$product['price']}', '$currentOrderNumber' );");
 
     if (!$result) {
         http_response_code(500);
-        echo json_encode(["error" => 'Filed adding product']);
+        echo json_encode(["error" => 'Failed adding product']);
         exit;
     }
 }

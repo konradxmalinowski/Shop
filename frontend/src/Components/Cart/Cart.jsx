@@ -8,7 +8,8 @@ import { ShopContext } from '../../store/shop-context-provider';
 import { useContext } from 'react';
 
 export default function Cart() {
-  const { products, sumPrices, handleOrderConfirm } = useContext(ShopContext);
+  const { products, sumPrices, handleOrderConfirm, toggleHistory } =
+    useContext(ShopContext);
 
   const numberOfAddedProducts = (
     <h3>
@@ -18,11 +19,11 @@ export default function Cart() {
 
   return (
     <div className="cart">
+      <button className="cart_button--history" onClick={toggleHistory}>
+        History
+      </button>
       {products.filter((product) => product.amount > 0).length === 0 ? (
-        <>
-          {numberOfAddedProducts}
-          <img src={cakeImage} alt="empty card illustration" loading="lazy" />
-        </>
+        <img src={cakeImage} alt="empty card illustration" loading="lazy" />
       ) : (
         <>
           {numberOfAddedProducts}

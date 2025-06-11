@@ -17,6 +17,14 @@
   border-radius: 10px;
 }
 
+.blur {
+  filter: blur(5px);
+}
+
+.order-confirm.order-confirm {
+  filter: blur(0px) !important;
+}
+
 .confirmed-products {
   width: 100%;
   display: flex;
@@ -104,4 +112,26 @@
   background-color: var(--Red);
   color: var(--Rose-50);
   font-weight: 800;
+}
+
+.cart_button--history {
+  padding: 10px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--Red);
+  color: var(--Rose-50);
+  font-weight: 800;
+  margin-bottom: 40px;
+  transform: scale(1);
+  margin-inline: auto;
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.4s ease-in-out;
+  }
 }
