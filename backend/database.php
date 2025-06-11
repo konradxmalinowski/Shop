@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'shop');
+define('DB_HOST', 'mysql.ct8.pl');
+define('DB_NAME', 'm42958_shop');
+define('DB_USER', 'm42958_admin');
+define('DB_PASSWORD', 'Adminadminadmin123');
 
 
 
