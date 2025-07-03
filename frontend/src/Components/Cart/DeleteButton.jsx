@@ -1,15 +1,19 @@
 import deleteIcon from '../../images/icon-remove-item.svg';
 
 import { ShopContext } from '../../store/shop-context-provider';
-import { useContext } from 'react';
+import { memo, useCallback, useContext } from 'react';
 
-export default function DeleteButton({ id }) {
+const DeleteButton = memo(function ({ id }) {
   const { products, setProducts } = useContext(ShopContext);
-  function removeFromOrderList() {
-    let updatedProducts = [...products];
-    updatedProducts[id].amount = 0;
-    setProducts(updatedProducts);
-  }
+
+  const removeFromOrderList = useCallback(
+    function removeFromOrderList() {
+      let updatedProducts = [...products];
+      updatedProducts[id].amount = 0;
+      setProducts(updatedProducts);
+    },
+    [id, products, setProducts]
+  );
 
   return (
     <button className="delete-product-button">
@@ -21,4 +25,6 @@ export default function DeleteButton({ id }) {
       />
     </button>
   );
-}
+});
+
+export default DeleteButton;
