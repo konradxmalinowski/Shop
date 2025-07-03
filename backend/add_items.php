@@ -12,17 +12,22 @@ if (empty($products)) {
     exit;
 }
 
-$result = mysqli_query($conn, "INSERT INTO orders() VALUES ();");
+$stmt = $pdo->prepare("INSERT INTO orders() VALUES()");
+$result = $stmt->execute();
+
 if (!$result) {
     http_response_code(500);
-    echo json_encode(["error" => 'Failed tp create new row']);
+    echo json_encode(["error" => 'Failed to create new row']);
     exit;
 }
 
-$currentOrderNumber = mysqli_insert_id($conn);
+$currentOrderNumber = $pdo->lastInsertId();
 
 foreach ($products as $product) {
-    $result = mysqli_query($conn, "INSERT INTO products (name, amount, category, price, Id_o) VALUES ('{$product['name']}', '{$product['amount']}', '{$product['category']}', '{$product['price']}', '$currentOrderNumber' );");
+    $query = "INSERT INTO products (name, amount, category, price, Id_o) VALUES (:name, :amount, :category, :price, :Id_o)";
+    $stmt = $pdo->prepare($query);
+    $result = $stmt->execute(["name" => $product['name'], "amount" => $product['amount'], "category" => $product['category'], "price" => $product['price'], "Id_o" => $currentOrderNumber]);
+    ;
 
     if (!$result) {
         http_response_code(500);

@@ -11,18 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'shop');
 
-
-
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-if (!$conn) {
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=shop', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo json_encode(["error" => "Failed to connect to the database"]);
     http_response_code(500);
-    echo json_encode(["error" => "Failed connecting to the database" . mysqli_error($conn)]);
     exit;
 }
 
