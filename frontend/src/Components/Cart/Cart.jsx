@@ -1,11 +1,10 @@
-import './cart.css';
-import cakeImage from '../../images/illustration-empty-cart.svg';
-import carbonNeutralImage from '../../images/icon-carbon-neutral.svg';
+import { useContext } from 'react';
+import { ShopContext } from '../../store/shop-context-provider';
 import CartItems from './CartItems';
 
-import { ShopContext } from '../../store/shop-context-provider';
-
-import { useContext } from 'react';
+import './styles/cart.css';
+import cakeImage from '../../images/illustration-empty-cart.svg';
+import carbonNeutralImage from '../../images/icon-carbon-neutral.svg';
 
 export default function Cart() {
   const { products, sumPrices, handleOrderConfirm, toggleHistory } =

@@ -1,7 +1,7 @@
+import { useContext } from 'react';
+
 import DeleteButton from './DeleteButton';
 import { ShopContext } from '../../store/shop-context-provider';
-
-import { useContext } from 'react';
 
 const CartItem = ({ id }) => {
   const { products } = useContext(ShopContext);

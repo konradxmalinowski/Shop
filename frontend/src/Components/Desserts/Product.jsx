@@ -1,6 +1,6 @@
 import { useCallback, useContext, useRef } from 'react';
-import AddButton from './AddButton';
 import { ShopContext } from '../../store/shop-context-provider';
+import AddButton from './AddButton';
 
 export default function Product({ id }) {
   const { products } = useContext(ShopContext);

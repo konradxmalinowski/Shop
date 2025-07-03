@@ -1,4 +1,4 @@
-import './confirm.css';
+import './styles/confirm.css';
 import ConfirmedItems from './ConfirmedItems';
 import checkedIcon from '../../images/icon-order-confirmed.svg';
 import { useContext } from 'react';

@@ -39,7 +39,8 @@
   background-color: white;
   color: var(--Rose-900);
   justify-content: center;
-  column-gap: 5px;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
   z-index: 2;
 }
 
@@ -54,22 +55,20 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }
-
   100% {
     z-index: 0;
   }
 }
-
 .add-product-button2 > button {
   width: 20px;
   height: 20px;
   border: 1px solid white;
   border-radius: 50%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 19px;
@@ -124,9 +123,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (width <= 990px) {
   .desserts-list {
     grid-template-columns: 1fr;
   }
-}
+}/*# sourceMappingURL=desserts.css.map */

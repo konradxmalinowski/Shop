@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../../store/shop-context-provider';
-import './History.css';
+import './styles/History.css';
 
 const History = ({ ref }) => {
   const [history, setHistory] = useState([]);
@@ -45,7 +45,7 @@ const History = ({ ref }) => {
       </button>
       {history &&
         Object.entries(history)
-          .filter(([i, items]) => items.length > 0)
+          .filter(([, items]) => items.length > 0)
           .map(([id, items]) => (
             <div key={id} className="history__group">
               <p className="history__ID">ID: {id}</p>

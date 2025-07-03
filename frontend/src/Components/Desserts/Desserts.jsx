@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import './desserts.css';
-import Product from './Product';
 import { ShopContext } from '../../store/shop-context-provider';
+import Product from './Product';
+import './styles/desserts.css';
 
 const Deserts = () => {
   const { products } = useContext(ShopContext);
