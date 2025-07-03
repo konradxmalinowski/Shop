@@ -15,17 +15,7 @@ if (!$result) {
 }
 
 if ($stmt->rowCount() > 0) {
-    while ($row = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
-        $data[] = [
-            'name' => $row['name'],
-            'amount' => $row['amount'],
-            'price' => $row['price'],
-            'category' => $row['category'],
-            'date' => $row['date'],
-            'ID' => $row['ID']
-        ];
-    }
-
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($data);
 }
 
