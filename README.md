@@ -1,122 +1,79 @@
-# Shop - A React Shopping Cart Application
+# Shop - Dessert Store Application 🍰🛒
 
-Shop is a modern and responsive web application built with **React** and **Vite**. It allows users to browse desserts, add them to a shopping cart, and place orders. The app is designed with simplicity and usability in mind.
-
-<br>
-
-## Features
-
-- **Browse Products**: Explore a variety of desserts with images, categories, and prices.
-- **Add to Cart**: Add items to the shopping cart with a single click.
-- **Manage Quantities**: Adjust the quantity of items in the cart.
-- **Order Summary**: View the total cost of your order.
-- **Order Confirmation**: Confirm your order and start a new one.
+Shop is a modern and responsive web application built with **React** (Vite). It allows users to browse desserts, add them to a cart, and place orders. The backend is based on **PHP** and **MySQL**.
 
 <br>
 
-##  Technologies Used
+## Features ✨
 
-- **React**: For building the user interface.
-- **Vite**: For fast development and build processes.
-- **CSS**: For styling components.
-- **LocalStorage**: To persist cart data between sessions.
-- **PHP**: To store history of shopping
+- 🍩 **Browse products**: Various desserts with images, categories, and prices.
+- ➕ **Add to cart**: Quickly add products to the cart.
+- 🔢 **Manage quantities**: Change the quantity of products in the cart.
+- 💵 **Order summary**: Display the total amount.
+- ✅ **Order confirmation**: Finalize and save order history.
+- 📜 **Order history**: View previous orders (via backend).
 
 <br>
 
-## Getting Started
+## Technologies 🛠️
 
-Follow these steps to set up and run the project locally:
+- **Frontend**: React, Vite, CSS
+- **Backend**: PHP (REST API), MySQL
+- **Database**: `shop.sql` file (structure and sample data)
 
-### Prerequisites
+<br>
 
-- Node.js (v16 or higher)
-- npm (v7 or higher)
+## Installation and Setup 🚀
 
-### Installation
-
-
-#### Frontend Tech Stack
-
-- **React** – For building reusable UI components.
-- **TypeScript** – Strong typing for improved reliability and maintainability.
-- **Vite** – Fast development environment and build tool.
-- **TailwindCSS** – Utility-first CSS framework for rapid UI development.
-
-#### Frontend Features
-
-- Modern, responsive user interface.
-- Add, edit, delete, and mark tasks as completed.
-- Real-time updates of task lists.
-- Communicates with backend via REST API.
-- Error handling and loading indicators.
-- Type-safe codebase with clear file structure.
-
-#### Frontend Getting Started
+### Frontend
 
 1. **Install dependencies:**
-    ```bash
-    cd frontend
-    npm install
-    ```
+   ```bash
+   cd frontend
+   npm install
+   ```
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+3. By default, the app is available at [http://localhost:5173](http://localhost:5173)
 
-2. **Configure API endpoint:**
-   - Update the API URL in your environment or configuration file to point to your backend server.
-
-3. **Run the development server:**
-    ```bash
-    npm run dev
-    ```
-
-4. Access the frontend at [http://localhost:5173](http://localhost:5173) (default Vite port).
+> **Note:** If your backend runs on a different port or address, update the API URL in the frontend code accordingly.
 
 <br>
 
-#### Backend Tech Stack
-
-- **PHP** – Server-side scripting language.
-- **MySQL** – Relational database for storing tasks and users.
-- **XAMPP** – Local development environment (Apache, MySQL, PHP, Perl).
-
-#### Backend Features
-
-- RESTful API for CRUD operations on tasks.
-- Secure database connections.
-- Input validation and error handling.
-- Easily extensible for user authentication or additional features.
-
-#### Backend Getting Started
+### Backend
 
 1. **Set up XAMPP:**
-   - Download and install XAMPP from [https://www.apachefriends.org/](https://www.apachefriends.org/).
+   - Download and install XAMPP: [https://www.apachefriends.org/](https://www.apachefriends.org/)
    - Start Apache and MySQL via the XAMPP control panel.
-
-2. **Database setup:**
-   - Import the provided SQL file (if available) to create the `to_do_app` database and tables:
-     1. Open phpMyAdmin (`http://localhost/phpmyadmin`).
-     2. Create a new database, e.g., `to_do_app`.
-     3. Import the SQL script.
-
-3. **Configure database credentials in PHP backend code.**
-
-4. **Run the backend:**
-   - Place backend files in the `htdocs` directory of XAMPP.
-   - Access the backend API via [http://localhost/shop/backend](http://localhost/shop/backend)
-
+2. **Database:**
+   - Open phpMyAdmin (`http://localhost/phpmyadmin`).
+   - Create a database named `m42958_shop`.
+   - Import the `shop.sql` file (located in the project root directory).
+3. **Backend:**
+   - Place the `backend` folder in the XAMPP `htdocs` directory (e.g., `C:/xampp/htdocs/Shop/backend`).
+   - Configure the database connection in `backend/database.php` if needed.
+   - The backend API will be available at e.g. [http://localhost/Shop/backend](http://localhost/Shop/backend)
 
 <br>
 
-## Screenshots
-![image](https://github.com/user-attachments/assets/8bc3b6fd-1025-4e94-b327-dc6bfb7b662f)
-![image](https://github.com/user-attachments/assets/d05df678-9cd8-4107-9541-eb3e32c811fe)
+## Database Structure 🗄️
 
-
-
+- **Table `orders`**: orders (Id_o, date)
+- **Table `products`**: products in orders (Id_p, name, amount, category, price, Id_o)
+- See details in the `shop.sql` file.
 
 <br>
 
-## Contact
+## Backend Files 📂
 
-For any inquiries or feedback: [malinowski.konrad45@gmail.com](mailto:malinowski.konrad45@gmail.com)
+- `add_items.php` – add products to an order
+- `show_history.php` – fetch order history
+- `database.php` – database connection configuration
 
+<br>
 
+## Contact ✉️
+
+For any questions or feedback: [malinowski.konrad45@gmail.com](mailto:malinowski.konrad45@gmail.com)
